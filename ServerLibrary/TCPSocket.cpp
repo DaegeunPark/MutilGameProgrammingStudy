@@ -34,6 +34,7 @@ int TCPSocket::Bind(const SocketAddress & toAddress)
 		SocketUtility::ReportError("TCPSocket::Bind");
 		return -SocketUtility::GetLastError();
 	}
+
 	return NO_ERROR;
 }
 

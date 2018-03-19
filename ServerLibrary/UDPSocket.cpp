@@ -1,5 +1,4 @@
 #include "stdafx.h"
-#include "UDPSocket.h"
 
 
 UDPSocket::UDPSocket(SOCKET socket)

@@ -1,5 +1,26 @@
 #include "stdafx.h"
 
+bool SocketUtility::Initialize()
+{
+#if _WIN32
+	WSADATA wsaData;
+	int result = WSAStartup(MAKEWORD(2, 2), &wsaData);
+	if (result != NO_ERROR)
+	{
+		ReportError("Starting Up");
+		return false;
+	}
+#endif
+	return true;
+}
+
+void SocketUtility::CleanUp()
+{
+#if _WIN32
+	WSACleanup();
+#endif
+}
+
 void SocketUtility::ReportError(const char * operationDesc)
 {
 #if _WIN32
@@ -36,6 +57,18 @@ UDPSocketPtr SocketUtility::CreateUDPSocket(SocketAddressFamily family)
 	SOCKET newSocket = socket(family, SOCK_DGRAM, IPPROTO_UDP);
 	if (newSocket != INVALID_SOCKET)
 		return UDPSocketPtr(new UDPSocket(newSocket));
+	else
+	{
+		ReportError("SocketUtility::CreateUDPSocket");
+		return nullptr;
+	}
+}
+
+TCPSocketPtr SocketUtility::CreateTCPSocket(SocketAddressFamily family)
+{
+	SOCKET newSocket = socket(family, SOCK_STREAM, IPPROTO_TCP);
+	if (newSocket != INVALID_SOCKET)
+		return TCPSocketPtr(new TCPSocket(newSocket));
 	else
 	{
 		ReportError("SocketUtility::CreateUDPSocket");

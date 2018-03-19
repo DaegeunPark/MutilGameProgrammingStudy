@@ -1,10 +1,19 @@
 #include "stdafx.h"
 
+SocketAddress::SocketAddress()
+{
+	sockaddr_in* addressIn			= GetAsSocketAddressIn();
+	addressIn->sin_family			= AF_INET;
+	addressIn->sin_addr.S_un.S_addr = INADDR_ANY;
+	addressIn->sin_port				= 0;
+}
+
 SocketAddress::SocketAddress(uint32_t inAddress, uint16_t inPort)
 {
-	GetAsSocketAddressIn()->sin_family				= AF_INET;
-	GetAsSocketAddressIn()->sin_addr.S_un.S_addr	= htonl(inAddress);
-	GetAsSocketAddressIn()->sin_port				= htons(inPort);
+	sockaddr_in* addressIn = GetAsSocketAddressIn();
+	addressIn->sin_family			= AF_INET;
+	addressIn->sin_addr.S_un.S_addr	= htonl(inAddress);
+	addressIn->sin_port				= htons(inPort);
 }
 
 SocketAddress::SocketAddress(const sockaddr& socketAddress)

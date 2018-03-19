@@ -10,12 +10,12 @@ public:
 	TCPSocket(const TCPSocket&)				= delete;
 	TCPSocket& operator=(const TCPSocket&)	= delete;
 
-	int						Connect(const SocketAddress& address);
-	int						Bind(const SocketAddress& toAddress);
-	int						Listen(int backlog = 32);
+	int				Connect(const SocketAddress& address);
+	int				Bind(const SocketAddress& toAddress);
+	int				Listen(int backlog = 32);
 	TCPSocketPtr	Accept(SocketAddress& fromAddress);
-	int						Send(const void* data, int length);
-	int						Receive(void* buffer, int length);
+	int				Send(const void* data, int length);
+	int				Receive(void* buffer, int length);
 
 private :
 	friend class SocketUtility;
