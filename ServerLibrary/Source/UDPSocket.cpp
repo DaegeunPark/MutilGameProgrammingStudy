@@ -1,5 +1,4 @@
-#include "stdafx.h"
-
+#include "ServerLibraryPCH.h"
 
 UDPSocket::UDPSocket(SOCKET socket)
 	: socket(socket)

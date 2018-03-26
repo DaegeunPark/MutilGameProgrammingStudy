@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "ServerLibraryPCH.h"
 
 SocketAddressPtr SocketAddressFactory::CreateIPv4FromString(const string & data)
 {

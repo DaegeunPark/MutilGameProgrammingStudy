@@ -18,6 +18,24 @@
       <Platform>x64</Platform>
     </ProjectConfiguration>
   </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Header\ServerLibraryPCH.h" />
+    <ClInclude Include="Header\SocketAddress.h" />
+    <ClInclude Include="Header\SocketAddressFactory.h" />
+    <ClInclude Include="Header\SocketUtility.h" />
+    <ClInclude Include="Header\StringUtilities.h" />
+    <ClInclude Include="Header\TCPSocket.h" />
+    <ClInclude Include="Header\UDPSocket.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="Source\ServerLibraryPCH.cpp" />
+    <ClCompile Include="Source\SocketAddress.cpp" />
+    <ClCompile Include="Source\SocketAddressFactory.cpp" />
+    <ClCompile Include="Source\SocketUtility.cpp" />
+    <ClCompile Include="Source\StringUtilities.cpp" />
+    <ClCompile Include="Source\TCPSocket.cpp" />
+    <ClCompile Include="Source\UDPSocket.cpp" />
+  </ItemGroup>
   <PropertyGroup Label="Globals">
     <VCProjectVersion>15.0</VCProjectVersion>
     <ProjectGuid>{6AE0BCFE-6533-411F-959B-5BD5B50C81DC}</ProjectGuid>
@@ -104,6 +122,8 @@
       <SDLCheck>true</SDLCheck>
       <PreprocessorDefinitions>_DEBUG;_LIB;%(PreprocessorDefinitions)</PreprocessorDefinitions>
       <ConformanceMode>true</ConformanceMode>
+      <PrecompiledHeaderFile>ServerLibraryPCH.h</PrecompiledHeaderFile>
+      <AdditionalIncludeDirectories>C:\Users\uemon\source\repos\MultiGameProgrammingStudy\ServerLibrary\Header;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
     </ClCompile>
     <Link>
       <SubSystem>Windows</SubSystem>
@@ -146,30 +166,6 @@
       <GenerateDebugInformation>true</GenerateDebugInformation>
     </Link>
   </ItemDefinitionGroup>
-  <ItemGroup>
-    <ClInclude Include="SocketAddress.h" />
-    <ClInclude Include="SocketAddressFactory.h" />
-    <ClInclude Include="SocketUtility.h" />
-    <ClInclude Include="stdafx.h" />
-    <ClInclude Include="StringUtilities.h" />
-    <ClInclude Include="targetver.h" />
-    <ClInclude Include="TCPSocket.h" />
-    <ClInclude Include="UDPSocket.h" />
-  </ItemGroup>
-  <ItemGroup>
-    <ClCompile Include="SocketAddress.cpp" />
-    <ClCompile Include="SocketAddressFactory.cpp" />
-    <ClCompile Include="SocketUtility.cpp" />
-    <ClCompile Include="stdafx.cpp">
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">Create</PrecompiledHeader>
-      <PrecompiledHeader Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Create</PrecompiledHeader>
-    </ClCompile>
-    <ClCompile Include="StringUtilities.cpp" />
-    <ClCompile Include="TCPSocket.cpp" />
-    <ClCompile Include="UDPSocket.cpp" />
-  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>

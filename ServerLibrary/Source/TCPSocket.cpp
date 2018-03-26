@@ -1,4 +1,4 @@
-#include "stdafx.h"
+#include "ServerLibraryPCH.h"
 
 TCPSocket::TCPSocket(SOCKET socket)
 	: socket(socket)
